@@ -1,0 +1,18 @@
+{
+  "name": "@prospective.co/perspective-publisher",
+  "version": "1.0.0",
+  "description": "A simple markdown-to-website script for AWS hosted perspective pages.",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.425.0",
+    "@finos/perspective": "^2.5.1",
+    "@finos/perspective-viewer": "^2.5.1",
+    "@finos/perspective-viewer-d3fc": "^2.5.1",
+    "@finos/perspective-viewer-datagrid": "^2.5.1",
+    "@finos/perspective-viewer-openlayers": "^2.5.1",
+    "cheerio": "^1.0.0-rc.12",
+    "showdown": "^2.1.0",
+    "stoppable": "^1.1.0"
+  }
+}
