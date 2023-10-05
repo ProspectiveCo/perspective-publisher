@@ -1,0 +1,15 @@
+{
+    "plugin": "Heatmap",
+    "title": "Age Distribution by Sport",
+    "group_by": ["Age"],
+    "split_by": ["Sport"],
+    "columns": ["Name"],
+    "filter": [
+        ["Medal", "!=", "NA"],
+        ["Age", "is not null", null]
+    ],
+    "sort": [["Name", "col asc"]],
+    "aggregates": {
+        "Age": "avg"
+    }
+}

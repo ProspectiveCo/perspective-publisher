@@ -85,11 +85,15 @@ for (const x of dom("perspective-viewer")) {
 }
 
 dom("head").append(`
-    <link rel="stylesheet" crossorigin="anonymous" href="/node_modules/@finos/perspective-viewer/dist/css/pro.css" />
-    <script type="module" src="/node_modules/@finos/perspective-viewer/dist/cdn/perspective-viewer.js"></script>
-    <script type="module" src="/node_modules/@finos/perspective-viewer-datagrid/dist/cdn/perspective-viewer-datagrid.js"></script>
-    <script type="module" src="/node_modules/@finos/perspective-viewer-d3fc/dist/cdn/perspective-viewer-d3fc.js"></script>
-    <script type="module" src="/node_modules/@finos/perspective-viewer-openlayers/dist/cdn/perspective-viewer-openlayers.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective@2.5.1/dist/cdn/perspective.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer@2.5.1/dist/cdn/perspective-viewer.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-datagrid@2.5.1/dist/cdn/perspective-viewer-datagrid.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-d3fc@2.5.1/dist/cdn/perspective-viewer-d3fc.js"></script>
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer/dist/css/themes.css" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@finos/perspective/dist/cdn/perspective.cpp.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer/dist/cdn/perspective_bg.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@finos/perspective/dist/cdn/perspective.worker.js" as="fetch" type="application/javascript" crossorigin="anonymous" />
+
     <style>
         perspective-viewer {
             display: block;
@@ -101,7 +105,7 @@ dom("head").append(`
 
 dom("body").append(`
     <script type="module"> 
-        import perspective from "/node_modules/@finos/perspective/dist/cdn/perspective.js";
+        import perspective from "https://cdn.jsdelivr.net/npm/@finos/perspective@2.5.1/dist/cdn/perspective.js";
         const worker = perspective.worker();
         ${script}
     </script>
