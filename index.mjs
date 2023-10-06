@@ -73,12 +73,14 @@ for (const x of dom("perspective-viewer")) {
     dom(x).attr("id", id);
     const method = url.endsWith(".arrow") ? "arrayBuffer" : url.endsWith(".csv") ? "text" : "json";
     script += `
-        var viewer = document.querySelector("#${id}");
-        var req = await fetch("${url}");
-        var data = await req.${method}();
-        var table = await worker.table(data);
-        viewer.load(table);
-        viewer.restore(${JSON.stringify(config)});
+        (() => {
+            var table = fetch("${url}").then(req => req.${method}()).then(data => worker.table(data));
+            window.addEventListener("load", async () => {
+                var viewer = document.querySelector("#${id}");
+                viewer.load(table);
+                viewer.restore(${JSON.stringify(config)});
+            });
+        })();
     `;
 
     dom(x).replaceWith(`<perspective-viewer id="${id}"></div>`);
